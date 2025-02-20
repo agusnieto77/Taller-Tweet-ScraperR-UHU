@@ -10,8 +10,7 @@ El taller presenta TweetScraperR, un paquete de R que permite descargar y analiz
 ### Recursos
 
 - [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads)
-- [Chrome for
-  Testing](https://googlechromelabs.github.io/chrome-for-testing/)
+- [Chrome for Testing](https://googlechromelabs.github.io/chrome-for-testing/)
 - [Rvest](https://rvest.tidyverse.org/)
 - [Chromote](https://rstudio.github.io/chromote/)
 - [TweetScraperR](https://github.com/agusnieto77/TweetScraperR/)
