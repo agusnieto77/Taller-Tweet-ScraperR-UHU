@@ -1,4 +1,4 @@
-# Script 09 - Extracción de tweets a búsqueda completa
+# Extracción de tweets a búsqueda completa
 
 # Cargar la librería TweetScraperR
 library(TweetScraperR)

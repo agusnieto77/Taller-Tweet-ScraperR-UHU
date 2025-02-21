@@ -1,28 +1,23 @@
-# Script 14: Extracción de tweets de un perfil específico usando TweetScraperR
+# Extracción de respuestas a un tweet específico
 
 # Cargar la librería TweetScraperR
-library(TweetScraperR)
+require(TweetScraperR)
+require(dplyr)
 
-# Definir el perfil de Twitter que queremos analizar
-user <- "congosto"
+img_coideso <- getTweetsData(coideso$url)
 
-# Iniciar sesión en Twitter
-# Nota: Esta función abrirá una ventana del navegador para autenticación
-openTwitter()
+urls_img <- unique(unlist(img_coideso$links_img_post))
 
-# Navegar hacia el perfil de interés
-# Esta función carga la línea de tiempo del/la usuario/a especificado/a
-openTimeline(username = user)
+getTweetsImages(urls_img)
 
-# Extraer tweets del perfil
-# Capturamos hasta 30 tweets del timeline del/la usuario/a
-# El resultado se guardará en un archivo RDS en el directorio de trabajo actual
-getScrollExtract(objeto = timeline, username = user, n_tweets = 30)
+archivos_locales <- paste0("./img_x/", list.files("./img_x"))
 
-# Cerrar la sesión del timeline
-# Importante: Siempre cerrar el timeline después de la extracción para liberar recursos
-closeTimeline()
+results <- getTweetsImagesAnalysis(archivos_locales)
 
-# Cerrar la sesión de Twitter
-# Esto cierra completamente la sesión iniciada con openTwitter()
-closeTwitter()
+results <- results |> filter(!is.na(contiene_texto))
+
+results <- results |> mutate(img = paste0("./img_x/", img))
+
+HTMLImgReport(results=results)
+
+# https://tweet-images-analysis.hlab.com.ar/

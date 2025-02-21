@@ -22,7 +22,7 @@ library(TweetScraperR)
 TweetScraperR::openTwitter()
 
 # Obtiene las URLs de los 10 primeros tweets que contienen el hashtag #RStats
-urls <- TweetScraperR::getUrlsTweetsSearch(search = "#RStats", n_urls = 10)
+urls <- TweetScraperR::getUrlsTweetsSearch(search = "Milei", n_urls = 10)
 
 # Obtiene los datos de los tweets a partir de las URLs
 tweets_r <- TweetScraperR::getTweetsData(urls)
